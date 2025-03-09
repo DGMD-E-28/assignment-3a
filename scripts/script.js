@@ -48,7 +48,7 @@ function addToCart() {
     if (menu[formattedInput]) {
         cart[formattedInput]++;
         updateCart();
-        alert(`${formattedInput.charAt(0).toUpperCase() + formattedInput.slice(1)} added to cart!`);
+
     } else {
         alert("Invalid item. Please select a menu item.");
     }
