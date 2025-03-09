@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Associative Arrays - Elizabeth Koch - DGMD E-28 Assignment 3c</title>
+    <link rel="icon" href="assets/favicon/okf.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation Bar with Logo and Theme Switch -->
+<header>
+    <div class="nav-bar">
+        <img src="assets/logo.png" alt="Joe's Hotdogs Logo" class="logo">
+        <div class="theme-container">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+            <span id="theme-icon">🌞</span>
+        </div>
+    </div>
+</header>
+
+<!-- First Row: Menu and Image Preview -->
+<div class="menu-images-row">
+    <div class="menu-container">
+        <h2>Menu</h2>
+        <ul id="menu"></ul>
+    </div>
+
+    <div class="image-container">
+        <img id="previewImage" src="assets/default.png" alt="Food Preview">
+    </div>
+</div>
+
+<!-- Second Row: Order Section and Shopping Cart -->
+<div class="container">
+    <div class="order-container">
+        <h2>Order</h2>
+        <div class="order-form">
+            <input type="text" id="orderInput" placeholder="Enter item name">
+            <button onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <div id="cart"></div>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+</div>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>
