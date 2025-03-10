@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             body.classList.add('jian-yang-mode');
             body.classList.remove('dark-mode');
-            themeIcon.innerHTML = `<img src="/assets/jian.png" alt="Jian Yang" class="jian-icon">`; // Jian Yang Mode
+            themeIcon.innerHTML = `<img src="assets/jian.png" alt="Jian Yang" class="jian-icon">`; // Jian Yang Mode
         }
     });
 });
