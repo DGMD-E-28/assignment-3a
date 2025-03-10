@@ -9,7 +9,7 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #373737;
-    --primary-color: #2f7a46; /* Green Navigation Bar */
+    --primary-color: #2f7a46;
     --link-color: #44b566;
     --link-hover-color: #2f7a46;
     --square-border-color: #373737;
@@ -23,6 +23,22 @@ body.dark-mode {
     --link-color: #3e9b5f;
     --link-hover-color: #2f7a46;
     --square-border-color: #f1f1f1;
+}
+
+/* Jian Yang Mode */
+body.jian-yang-mode {
+    --bg-color: #ffeb3b;
+    --text-color: #d32f2f;
+    --primary-color: #ff5722;
+    --link-color: #e91e63;
+    --link-hover-color: #c2185b;
+    --square-border-color: #880e4f;
+}
+
+/* Jian Yang Icon */
+.jian-icon {
+    height: 24px;
+    vertical-align: middle;
 }
 
 /* Ensure the body has enough space for content */
@@ -61,7 +77,7 @@ body {
     transform: translateX(-50%);
 }
 
-/* Theme Toggle Inside Nav Bar */
+/* Theme Switch Container */
 .theme-container {
     position: absolute;
     right: 30px;
@@ -70,18 +86,41 @@ body {
     gap: 10px;
 }
 
-/* Theme Toggle Switch */
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
+/* Three-position slider */
+.theme-switch input[type="range"] {
+    -webkit-appearance: none;
+    width: 60px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s;
 }
 
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+/* Slider Thumb */
+.theme-switch input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--link-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Different background colors based on mode */
+body.dark-mode .theme-switch input[type="range"],
+body.jian-yang-mode .theme-switch input[type="range"] {
+    background: var(--bg-color);
+}
+
+/* Ensure logo link does not affect layout */
+.nav-bar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 /* Slider Track */
@@ -147,7 +186,7 @@ input:checked + .slider:before {
 .menu-container {
     flex: 1;
     padding: 20px;
-    overflow-y: auto; /* Allow scrolling if content exceeds fixed height */
+    overflow-y: auto;
     height: 100%;
 }
 
@@ -251,3 +290,5 @@ button:hover,
 .order-form button:hover {
     background-color: var(--link-hover-color);
 }
+
+

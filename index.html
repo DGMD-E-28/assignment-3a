@@ -13,13 +13,14 @@
 <!-- Navigation Bar with Logo and Theme Switch -->
 <header>
     <div class="nav-bar">
-        <img src="assets/logo.png" alt="Joe's Hotdogs Logo" class="logo">
+        <a href="index.html">
+            <img src="assets/logo.png" alt="Joe's Hotdogs Logo" class="logo">
+        </a>
         <div class="theme-container">
-            <label class="theme-switch">
-                <input type="checkbox" id="theme-toggle">
-                <span class="slider"></span>
-            </label>
             <span id="theme-icon">🌞</span>
+            <div class="theme-switch">
+                <input type="range" id="theme-toggle" min="0" max="2" step="1" value="0">
+            </div>
         </div>
     </div>
 </header>
