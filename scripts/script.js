@@ -3,12 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
 
-    themeToggle.addEventListener('change', () => {
-        body.classList.toggle('dark-mode');
-        themeIcon.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
+    themeToggle.addEventListener('input', () => {
+        let themeState = parseInt(themeToggle.value, 10); // Get slider value
+
+        if (themeState === 0) {
+            body.classList.remove('dark-mode', 'jian-yang-mode');
+            themeIcon.innerHTML = '🌞'; // Light Mode
+        } else if (themeState === 1) {
+            body.classList.add('dark-mode');
+            body.classList.remove('jian-yang-mode');
+            themeIcon.innerHTML = '🌙'; // Dark Mode
+        } else {
+            body.classList.add('jian-yang-mode');
+            body.classList.remove('dark-mode');
+            themeIcon.innerHTML = `<img src="/assets/jian.png" alt="Jian Yang" class="jian-icon">`; // Jian Yang Mode
+        }
     });
 });
-
 // Menu Items & Prices (Now referencing `assets/` for images)
 let menu = {
     "hotdog": { price: 4.00, image: "assets/hotdog.png" },
@@ -26,13 +37,24 @@ function displayMenu() {
     menuDiv.innerHTML = "";
     for (let item in menu) {
         let capitalized = item.charAt(0).toUpperCase() + item.slice(1);
-        menuDiv.innerHTML += `<li onclick="selectItem('${capitalized}')" onmouseover="updateImage('${menu[item].image}')">${capitalized}: $${menu[item].price.toFixed(2)}</li>`;
+        menuDiv.innerHTML += `<li onclick="selectItem('${capitalized}')" onmouseover="updateImage('${menu[item].image}', '${capitalized}')">${capitalized}: $${menu[item].price.toFixed(2)}</li>`;
     }
 }
 
 // Update Image on Hover
-function updateImage(imageSrc) {
-    document.getElementById("previewImage").src = imageSrc;
+function updateImage(imageSrc, itemName) {
+    const previewImage = document.getElementById("previewImage");
+    const body = document.body;
+
+    if (body.classList.contains("jian-yang-mode")) {
+        if (itemName.toLowerCase() === "hotdog") {
+            previewImage.src = "assets/hotdog.png";  // Show actual hotdog image
+        } else {
+            previewImage.src = "assets/nothotdog.png";  // Force nothotdog image for everything else
+        }
+    } else {
+        previewImage.src = imageSrc; // Normal behavior for Light/Dark mode
+    }
 }
 
 // Select Menu Item to Input Field
